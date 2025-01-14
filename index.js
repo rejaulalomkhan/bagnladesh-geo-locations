@@ -58,6 +58,18 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'OK' });
 });
 
+// Documentation endpoint
+app.get('/api/docs', (req, res) => {
+    const docs = {
+        divisions: 'https://vercel.com/nuhil/bangladesh-geocode/preview?endpoint=/api/divisions',
+        districts: 'https://vercel.com/nuhil/bangladesh-geocode/preview?endpoint=/api/districts',
+        upazilas: 'https://vercel.com/nuhil/bangladesh-geocode/preview?endpoint=/api/upazilas',
+        unions: 'https://vercel.com/nuhil/bangladesh-geocode/preview?endpoint=/api/unions'
+    };
+
+    res.json(docs);
+});
+
 app.use((req, res) => {
     res.status(404).json({ error: 'Invalid endpoint' });
 });
